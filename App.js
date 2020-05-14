@@ -27,7 +27,7 @@ const Stack = createStackNavigator();
 
 const MyStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="ListDecks">
       <Stack.Screen name="ListDecks" component={ListDecks} options={{title: "List of Decks"}} />
       <Stack.Screen name="ShowDeck" component={ShowDeck} options={{title: "Show Deck"}} />
       <Stack.Screen name="AddDeck" component={AddDeck} options={{title: "Add a Deck to List"}} />

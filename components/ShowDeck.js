@@ -32,7 +32,7 @@ class ShowDeck extends Component {
                     <Text style={styles.text}># of Cards: <Text style={styles.colorOrange}>{this.props.numCards}</Text></Text>
                 </View>
                 <View style={[styles.row, styles.bottomSpace]}>
-                    <SubmitBtn onPress={() => this.props.navigation.navigate('TakeQuiz', {deck: this.props.deck})}>Start</SubmitBtn>
+                    <SubmitBtn disabled={this.props.numCards===0} onPress={() => this.props.navigation.navigate('TakeQuiz', {deck: this.props.deck})}>Start</SubmitBtn>
                     <SubmitBtn onPress={() => this.props.navigation.navigate('AddCard', {deck: this.props.deck})}>Add Card</SubmitBtn>
                 </View>
                 <TextButton style={styles.warningInput} onPress={this.removeDeck}>Delete Deck</TextButton>

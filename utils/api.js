@@ -10,7 +10,7 @@ export function fetchDecks () {
 
 export function fetchDeck ( { deck } ) {
     return AsyncStorage.getItem(DECKS_STORAGE_KEY).then((result) => {
-        return result[deck]
+        return JSON.parse(result[deck])
     })
 }
 
@@ -19,8 +19,8 @@ export function mergeDeck ( deck ) {
 }
 
 export function mergeCard ( {deck, questions} ) {
-    const newCard = `{${deck}: {questions: ${JSON.stringify(questions)}}}`
-    return AsyncStorage.mergeItem(DECKS_STORAGE_KEY, newCard)
+    const newCard = {[deck]: {questions}}
+    return AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify(newCard))
 }
 
 export function removeEntry ({deck}) {

@@ -10,10 +10,10 @@ export function TextButton({ children, onPress, style = {} }) {
     )
 }
 
-export function SubmitBtn ( { children, onPress, style = {} } ) {
+export function SubmitBtn ( { children, disabled = false, onPress, style = {} } ) {
     return (
-        <TouchableOpacity onPress={onPress} style={Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.androidSumbitBtn}>
+        !disabled && (<TouchableOpacity onPress={onPress} style={[disabled?styles.hide:'', Platform.OS === 'ios' ? styles.iosSubmitBtn : styles.androidSumbitBtn]}>
             <Text style={[styles.submitBtnText, style]}>{children}</Text>
-        </TouchableOpacity>
+        </TouchableOpacity>)
     )
 }
